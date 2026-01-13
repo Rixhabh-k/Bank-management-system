@@ -1,13 +1,187 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bank Admin</title>
+    <link rel="stylesheet" href="./style/admin.css">
+
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.8.0/fonts/remixicon.css" rel="stylesheet" />
 </head>
+
 <body>
-    <h1>Admin</h1>
-    <button id="logout">logout</button>
+    <div id="main">
+        <aside class="sidebar">
+            <div class="logo">
+                <h2>MyApp</h2>
+            </div>
+
+            <ul class="menu">
+                <li class="active" id="homeTab">Home</li>
+                <li id="addUserTab">Add Users</li>
+                <li id="updateUserTab">Update Users</li>
+                <li>Delete Users</li>
+                <li>Reset Pin</li>
+                <li>Account Status</li>
+                <li>Support</li>
+            </ul>
+        </aside>
+
+        <div class="dashboard">
+            <header class="header">
+                <div class="left">
+                    <h1 class="company-name">Manger Dashboard</h1>
+                </div>
+
+                <div class="right">
+                    <span class="welcome">Welcome, Admin</span>
+                    <button id="logout" class="logout-btn">Logout</button>
+                </div>
+            </header>
+
+            <section class="content">
+                <div class="content-container">
+                    <div class="card-container">
+                        <div class="info-cards">
+                            <h1>Total Users</h1>
+                            <p id="totalUsers" >0</p>
+                        </div>
+                        <div class="info-cards">
+                            <h1>Active Users</h1>
+                            <p id="totalActiveUsers" >0</p>
+                        </div>
+                        <div class="info-cards">
+                            <h1>Blocked Users</h1>
+                            <p id="totalBlockedUsers" >0</p>
+                        </div>
+                        <div class="info-cards">
+                            <h1>Total Funds</h1>
+                            <p id="totalFunds" >₹80,000</p>
+                        </div>
+                        <div class="info-cards">
+                            <h1>Reports</h1>
+                            <button>View</button>
+                        </div>
+                    </div>
+
+                    <div class="recent-joined-members">
+                        <div class="recent-joined-members-heading">
+                            <h1>Recently Joined</h1>
+                        </div>
+                        <input type="text" placeholder="Search for user">
+
+                        <div class="joined-members-container">
+
+                            <!-- Header Row -->
+                            <div class="members-header">
+                                <span>Name</span>
+                                <span>ID</span>
+                                <span>Acc. Type</span>
+                                <span>Status</span>
+                            </div>
+
+                            <!-- Users List -->
+                            <div class="home-members">
+                                <!-- Single User -->
+                                
+
+                                
+
+                                
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+            <section class="addUserSection">
+                <!-- <div class="addUserNorify">
+                    <i class="ri-check-line"></i>
+                    <h1>User Added Successfully</h1>
+                </div> -->
+                <div class="addUserSection-container">
+                    <div class="heading">
+                        <h1>Add a new user</h1>
+                    </div>
+                    <div class="addUserForm">
+                        <form id="addUserForm">
+
+                            <!-- Personal Info -->
+                            <div class="form-group">
+                                <label>Full Name</label>
+                                <input type="text" name="fullName" placeholder="Enter full name" >
+                            </div>
+
+                            <div class="form-group">
+                                <label>Email</label>
+                                <input type="email" name="email" placeholder="Enter email address" >
+                            </div>
+
+                            <div class="form-group">
+                                <label>Mobile Number</label>
+                                <input type="tel" name="mobile" placeholder="Enter mobile number" maxlength="10"
+                                    >
+                            </div>
+
+                            <!-- Account Info -->
+                            <div class="form-group">
+                                <label>Initial Balance</label>
+                                <input type="number" name="balance" placeholder="Enter initial balance" min="0"
+                                    >
+                            </div>
+
+                            <div class="form-group">
+                                <label>Account Type</label>
+                                <select name="accountType" >
+                                    <option value="">Select account type</option>
+                                    <option value="personal">Personal</option>
+                                    <option value="business">Business</option>
+                                </select>
+                            </div>
+
+                            <!-- Security -->
+                            <div class="form-group">
+                                <label>ATM PIN</label>
+                                <input type="password" name="pin" placeholder="Enter 4-digit PIN" maxlength="4"
+                                    >
+                            </div>
+
+                            <div class="form-group">
+                                <label>Confirm ATM PIN</label>
+                                <input type="password" name="confirmPin" placeholder="Confirm PIN" maxlength="4"
+                                    >
+                            </div>
+
+                            <!-- System Info -->
+                            <div class="form-group">
+                                <label>Account Status</label>
+                                <select name="status">
+                                    <option value="active" selected>Active</option>
+                                    <option value="blocked">Blocked</option>
+                                </select>
+                            </div>
+
+                            <!-- Submit -->
+                            <div class="form-group">
+                                <button type="submit">Create Account</button>
+                            </div>
+
+                        </form>
+                    </div>
+
+                </div>
+            </section>
+
+            <section class="updateUserSection">
+
+            </section>
+        </div>
+    </div>
+
     <script type="module" src="admin.js"></script>
 </body>
+
 </html>
