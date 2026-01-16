@@ -422,11 +422,11 @@ body {
               }
             }
 
-            .updateAction{
+            .updateAction {
               display: flex;
               gap: 10px;
 
-              #viewUser{
+              #viewUser {
                 padding: 3px 10px;
                 border: none;
                 border-radius: 3px;
@@ -437,11 +437,11 @@ body {
                 transition: all ease 0.2s;
               }
 
-              #viewUser:hover{
+              #viewUser:hover {
                 transform: scale(1.05);
               }
-              
-              #editUser{
+
+              #editUser {
                 padding: 3px 10px;
                 border: none;
                 border-radius: 3px;
@@ -452,46 +452,43 @@ body {
                 transition: all ease 0.2s;
               }
 
-              #editUser:hover{
+              #editUser:hover {
                 transform: scale(1.05);
               }
             }
-
           }
         }
 
-        .main-update-member{
+        .main-update-member {
           display: none;
         }
       }
 
-      .viewUser{
+      .viewUser {
         display: flex;
         flex-direction: column;
         gap: 10px;
-        .view-model{
+        .view-model {
           background-color: #134a46;
           padding: 3px 10px;
           border-radius: 5px;
-          h1{
+          h1 {
             color: #4cff9f;
             font-size: 1.2rem;
             font-weight: 500;
 
-            span{
+            span {
               color: white;
             }
           }
-
-
         }
 
-        .view-close{
+        .view-close {
           display: flex;
           align-items: center;
           justify-content: space-between;
 
-          button{
+          button {
             background: #ff6b6b;
             color: white;
             border: none;
@@ -500,8 +497,30 @@ body {
             transition: all ease 0.2s;
           }
 
-          button:hover{
+          button:hover {
             transform: scale(1.05);
+          }
+        }
+      }
+
+      .editUser {
+        form {
+          display: flex;
+          flex-direction: column;
+          gap: 10px;
+          .edit-form-group {
+            display: flex;
+            flex-direction: column;
+            // gap: 10px;
+            button{
+              padding: 10px;
+              border: none;
+              background: #4cff9f;
+              border-radius: 5px;
+              color: #134a46;
+              font-weight: 700;
+              cursor: pointer;
+            }
           }
         }
       }

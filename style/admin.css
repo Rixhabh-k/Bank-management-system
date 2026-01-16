@@ -425,4 +425,22 @@ body {
 }
 #main .dashboard .updateUserSection .viewUser .view-close button:hover {
   transform: scale(1.05);
+}
+#main .dashboard .updateUserSection .editUser form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+#main .dashboard .updateUserSection .editUser form .edit-form-group {
+  display: flex;
+  flex-direction: column;
+}
+#main .dashboard .updateUserSection .editUser form .edit-form-group button {
+  padding: 10px;
+  border: none;
+  background: #4cff9f;
+  border-radius: 5px;
+  color: #134a46;
+  font-weight: 700;
+  cursor: pointer;
 }/*# sourceMappingURL=admin.css.map */

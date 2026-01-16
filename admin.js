@@ -156,6 +156,7 @@ function addUser() {
 
             const memberRow = document.createElement("div");
             memberRow.className = "member-row";
+            memberRow.dataset.id = userData.id;
 
             const name = document.createElement("span");
             name.textContent = userData.fullName;
@@ -202,6 +203,7 @@ function addUser() {
 
             const updateMemberRow = document.createElement("div");
             updateMemberRow.className = "update-member-row";
+            updateMemberRow.dataset.id = userData.id;
 
             const updateName = document.createElement("span");
             updateName.textContent = userData.fullName;
@@ -248,13 +250,12 @@ function addUser() {
             //! view user logic 
 
             viewBtn.addEventListener('click', function () {
-                console.log("click");
 
                 let update = document.querySelector('.update')
                 update.classList.add('main-update-member')
 
                 // main-update-member
-                
+
 
                 const container = document.createElement("div");
                 container.className = "update-members-container viewUser";
@@ -275,11 +276,11 @@ function addUser() {
                     return viewModel;
                 }
 
-                container.appendChild(createViewModel("Name", userData.fullName));
+                container.appendChild(createViewModel("Name", userData.fullName)); // name
                 container.appendChild(createViewModel("User Id", userData.id));
                 container.appendChild(createViewModel("Account Number", userData.accountNumber));
-                container.appendChild(createViewModel("Email", userData.email));
-                container.appendChild(createViewModel("Phone", `+91 ${userData.mobile}`));
+                container.appendChild(createViewModel("Email", userData.email)); // email
+                container.appendChild(createViewModel("Phone", `+91 ${userData.mobile}`)); //number
                 container.appendChild(createViewModel("Account Type", userData.accountType));
                 container.appendChild(createViewModel("Account Balance", userData.balance));
                 container.appendChild(createViewModel("Account Status", userData.status));
@@ -306,6 +307,137 @@ function addUser() {
             })
 
             //! view user logic 
+
+            //! edit user logic 
+
+            editBtn.addEventListener('click', function () {
+
+                let update = document.querySelector('.update')
+                update.classList.add('main-update-member')
+
+                // Parent container
+                const parent = document.querySelector('.updateUserSection-container');
+
+                // Main container
+                const editContainer = document.createElement('div');
+                editContainer.className = 'update-members-container editUser';
+
+                // Form
+                const form = document.createElement('form');
+
+                // ---- Name Field ----
+                const nameGroup = document.createElement('div');
+                nameGroup.className = 'edit-form-group';
+
+                const nameLabel = document.createElement('label');
+                nameLabel.textContent = 'Name';
+
+                const nameInput = document.createElement('input');
+                nameInput.type = 'text';
+                nameInput.name = 'username';
+                nameInput.value = updateName.textContent; // name
+
+                nameGroup.appendChild(nameLabel);
+                nameGroup.appendChild(nameInput);
+
+                // ---- Phone Field ----
+                const phoneGroup = document.createElement('div');
+                phoneGroup.className = 'edit-form-group';
+
+                const phoneLabel = document.createElement('label');
+                phoneLabel.textContent = 'Phone';
+
+                const phoneInput = document.createElement('input');
+                phoneInput.type = 'number';
+                phoneInput.name = 'mobile';
+                phoneInput.value = userData.mobile; //phone
+
+                phoneGroup.appendChild(phoneLabel);
+                phoneGroup.appendChild(phoneInput);
+
+                // ---- Email Field ----
+                const emailGroup = document.createElement('div');
+                emailGroup.className = 'edit-form-group';
+
+                const emailLabel = document.createElement('label');
+                emailLabel.textContent = 'Email';
+
+                const emailInput = document.createElement('input');
+                emailInput.type = 'email';
+                emailInput.name = 'email';
+                emailInput.value = userData.email; // email
+
+                emailGroup.appendChild(emailLabel);
+                emailGroup.appendChild(emailInput);
+
+                // ---- Save Button ----
+                const btnGroup = document.createElement('div');
+                btnGroup.className = 'edit-form-group';
+
+                const saveBtn = document.createElement('button');
+                saveBtn.textContent = 'Save';
+
+                btnGroup.appendChild(saveBtn);
+
+                // Append all groups into form
+                form.appendChild(nameGroup);
+                form.appendChild(phoneGroup);
+                form.appendChild(emailGroup);
+                form.appendChild(btnGroup);
+
+                // Append form into main container
+                editContainer.appendChild(form);
+
+                // Finally append into your target section
+                parent.appendChild(editContainer);
+
+                form.addEventListener('submit', function (e) {
+                    e.preventDefault();
+
+                    // 1. Update main data object
+                    userData.fullName = nameInput.value;
+                    userData.mobile = phoneInput.value;
+                    userData.email = emailInput.value;
+
+                    // 2. Save back to localStorage
+                    localStorage.setItem(userData.id, JSON.stringify(userData));
+
+                    // 3. Update Home tab row
+                    const homeRow = document.querySelector(
+                        `.member-row[data-id="${userData.id}"]`
+                    );
+                    if (homeRow) {
+                        homeRow.children[0].textContent = userData.fullName; // name
+                        
+                    }
+
+                    // 4. Update Update-User tab row
+                    const updateRow = document.querySelector(
+                        `.update-member-row[data-id="${userData.id}"]`
+                    );
+                    if (updateRow) {
+                        updateRow.children[0].textContent = userData.fullName; // updateName
+                    }
+
+                    
+                    const viewContainer = document.querySelector('.update-members-container.viewUser');
+                    if (viewContainer) {
+                        const spans = viewContainer.querySelectorAll(".view-model span");
+
+                        spans[0].textContent = userData.fullName;           // Name
+                        spans[3].textContent = userData.email;              // Email
+                        spans[4].textContent = `+91 ${userData.mobile}`;    // Phone
+                    }
+
+                    // Close edit form
+                    parent.removeChild(editContainer);
+                    update.classList.remove('main-update-member');
+                });
+
+            })
+
+
+            //! edit user logic 
 
 
 
