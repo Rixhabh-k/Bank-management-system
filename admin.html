@@ -14,7 +14,7 @@
     <div id="main">
         <aside class="sidebar">
             <div class="logo">
-                <h2>MyApp</h2>
+                <h2>Rishabh</h2>
             </div>
 
             <ul class="menu">
@@ -22,8 +22,8 @@
                 <li id="addUserTab">Add Users</li>
                 <li id="updateUserTab">Update Users</li>
                 <li id="deleteUserTab">Delete Users</li>
-                <li>Reset Pin</li>
-                <li>Account Status</li>
+                <!-- <li>Reset Pin</li>
+                <li>Account Status</li> -->
                 <li>Support</li>
             </ul>
         </aside>
@@ -112,33 +112,33 @@
                             <!-- Personal Info -->
                             <div class="form-group">
                                 <label>Full Name</label>
-                                <input type="text" name="fullName" placeholder="Enter full name">
+                                <input type="text" name="fullName" placeholder="Enter full name" required>
                             </div>
 
                             <div class="form-group">
                                 <label>Email</label>
-                                <input type="email" name="email" placeholder="Enter email address">
+                                <input type="email" name="email" placeholder="Enter email address" required>
                             </div>
 
                             <div class="form-group">
                                 <label>Mobile Number</label>
-                                <input type="tel" name="mobile" placeholder="Enter mobile number" maxlength="10">
+                                <input type="tel" name="mobile" placeholder="Enter mobile number" maxlength="10" required>
                             </div>
 
                             <div class="form-group">
                                 <label>Date of Join</label>
-                                <input type="date" name="dateOfJoin" placeholder="Enter full name">
+                                <input type="date" name="dateOfJoin" placeholder="Enter full name" required>
                             </div>
 
                             <!-- Account Info -->
                             <div class="form-group">
                                 <label>Initial Balance</label>
-                                <input type="number" name="balance" placeholder="Enter initial balance" min="0">
+                                <input type="number" name="balance" placeholder="Enter initial balance" min="0" required>
                             </div>
 
                             <div class="form-group">
                                 <label>Account Type</label>
-                                <select name="accountType">
+                                <select name="accountType" required>
                                     <option value="">Select account type</option>
                                     <option value="personal">Personal</option>
                                     <option value="business">Business</option>
@@ -148,12 +148,12 @@
                             <!-- Security -->
                             <div class="form-group">
                                 <label>ATM PIN</label>
-                                <input type="password" name="pin" placeholder="Enter 4-digit PIN" maxlength="4">
+                                <input type="password" name="pin" placeholder="Enter 4-digit PIN" maxlength="4" required>
                             </div>
 
                             <div class="form-group">
                                 <label>Confirm ATM PIN</label>
-                                <input type="password" name="confirmPin" placeholder="Confirm PIN" maxlength="4">
+                                <input type="password" name="confirmPin" placeholder="Confirm PIN" maxlength="4" required>
                             </div>
 
                             <!-- System Info -->
